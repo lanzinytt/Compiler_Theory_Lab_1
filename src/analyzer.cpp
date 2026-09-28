@@ -426,9 +426,6 @@ int Analyzer::run() {
     int result = 0;
     if (options_.mode == RunMode::Lex || options_.mode == RunMode::All) {
         result = Lexer(options_.input).run(options_.outputDirectory);
-        if (options_.mode == RunMode::Lex) {
-            return result;
-        }
     }
     if (options_.mode == RunMode::Parse || options_.mode == RunMode::All) {
         result = Parser(readDyd(options_.mode == RunMode::Parse ? options_.input : dydPath),
